@@ -1,10 +1,10 @@
-package dao;
+package entities;
 
-public class JourDAO {
+public class Jour {
     private byte id_jour;
     private String nom_jour;
 
-    public JourDAO(byte id_jour, String nom_jour) {
+    public Jour(byte id_jour, String nom_jour) {
         id_jour = id_jour;
         nom_jour = nom_jour;
     }

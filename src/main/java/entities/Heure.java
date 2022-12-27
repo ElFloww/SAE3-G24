@@ -1,10 +1,10 @@
-package dao;
+package entities;
 
-public class HeureDAO {
+public class Heure {
     private int id_heure;
     private String heure;
 
-    public HeureDAO(int id_heure, String heure) {
+    public Heure(int id_heure, String heure) {
         this.id_heure = id_heure;
         this.heure = heure;
     }

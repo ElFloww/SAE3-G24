@@ -1,11 +1,11 @@
-package dao;
+package entities;
 
-public class HeureTotalPlacerDAO {
+public class HeureTotalPlacer {
     private int id_ressource;
     private int id_type_enseignement;
     private int total_heure;
 
-    public HeureTotalPlacerDAO(int id_ressource, int id_type_enseignement, int total_heure) {
+    public HeureTotalPlacer(int id_ressource, int id_type_enseignement, int total_heure) {
         this.id_ressource = id_ressource;
         this.id_type_enseignement = id_type_enseignement;
         this.total_heure = total_heure;

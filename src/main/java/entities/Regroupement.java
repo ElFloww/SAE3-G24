@@ -1,11 +1,11 @@
-package dao;
+package entities;
 
-public class RegroupementDAO {
+public class Regroupement {
     private int id_regroupement;
     private String description_regroupement;
     private int id_regroupement_parent;
 
-    public RegroupementDAO(int id_regroupement, String description_regroupement, int id_regroupement_parent) {
+    public Regroupement(int id_regroupement, String description_regroupement, int id_regroupement_parent) {
         this.id_regroupement = id_regroupement;
         this.description_regroupement = description_regroupement;
         this.id_regroupement_parent = id_regroupement_parent;

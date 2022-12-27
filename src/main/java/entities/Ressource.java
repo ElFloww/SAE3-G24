@@ -1,6 +1,6 @@
-package dao;
+package entities;
 
-public class RessourceDAO {
+public class Ressource {
     private int id_ressource;
     private String nom_ressource;
     private int THTD;
@@ -8,7 +8,7 @@ public class RessourceDAO {
     private int THCM;
     private int id_regroupement;
 
-    public RessourceDAO(int id_ressource, String nom_ressource, int THTD, int THTP, int THCM, int id_regroupement) {
+    public Ressource(int id_ressource, String nom_ressource, int THTD, int THTP, int THCM, int id_regroupement) {
         this.id_ressource = id_ressource;
         this.nom_ressource = nom_ressource;
         this.THTD = THTD;

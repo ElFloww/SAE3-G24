@@ -1,12 +1,12 @@
-package dao;
+package entities;
 
-public class HeureRestanteDAO {
+public class HeureRestante {
     private int id_regroupement;
     private int id_ressource;
     private int id_type_enseignement;
     private int nombre_heure_restante;
 
-    public HeureRestanteDAO(int id_regroupement, int id_ressource, int id_type_enseignement, int nombre_heure_restante) {
+    public HeureRestante(int id_regroupement, int id_ressource, int id_type_enseignement, int nombre_heure_restante) {
         this.id_regroupement = id_regroupement;
         this.id_ressource = id_ressource;
         this.id_type_enseignement = id_type_enseignement;

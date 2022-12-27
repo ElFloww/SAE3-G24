@@ -1,13 +1,13 @@
-package dao;
+package entities;
 
-public class DisponibiliteDAO {
+public class Disponibilite {
     private int id_disponibilite;
     private byte id_jour;
     private int id_semaine;
     private int id_heure_debut;
     private int id_heure_duree;
 
-    public DisponibiliteDAO(int id_disponibilite, byte id_jour, int id_semaine, int id_heure_debut, int id_heure_duree) {
+    public Disponibilite(int id_disponibilite, byte id_jour, int id_semaine, int id_heure_debut, int id_heure_duree) {
         this.id_disponibilite = id_disponibilite;
         this.id_jour = id_jour;
         this.id_semaine = id_semaine;

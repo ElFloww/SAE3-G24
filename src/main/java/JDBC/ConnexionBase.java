@@ -7,36 +7,53 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class ConnexionBase {
 
-    public static void main(String[] args) throws SQLException {
+    private static String nomDriver = "com.mysql.cj.jdbc.Driver";
+    private static String urlBD = "jdbc:mysql://localhost:3306/baseedt";
+    private static String user = "root";
+    private static String password = "";
+    public static Connection maConnexion;
 
-        String nomDriver = "com.mysql.cj.jdbc.Driver";
+    public static Connection getInstance() {
+        if (maConnexion == null) {
+            try {
+                //Chargement du driver en mémoire
+                Class.forName(nomDriver);
+                System.out.println("Le driver est chargé.");
+            } catch (ClassNotFoundException e) {
+                //on gère l'exception comme elle n'est pas issue de la classe RuntimeException
+                e.printStackTrace();
+                System.exit(-1);
+            }
 
-        String urlBD = "jdbc:mysql://localhost:3306/baseEDT";
-
-        try {
-            //Chargement du driver en mémoire
-            Class.forName(nomDriver);
-            System.out.println("Le driver est chargé.");
+            try {
+                maConnexion = DriverManager.getConnection(urlBD, user, password);
+                System.out.println("La connexion est réussie.");
+            } catch (SQLException e) { //de même, on gère l'exception
+                throw new RuntimeException(e);
+            }
+            return maConnexion;
         }
-        catch (ClassNotFoundException e){
-            //on gère l'exception comme elle n'est pas issue de la classe RuntimeException
-            e.printStackTrace();
-            System.exit(-1);
+        return maConnexion;
+    }
+
+    public static void DeconnexionBase()
+    {
+        try
+        {
+            //fermeture de la connexion
+            maConnexion.close();
+            System.out.println("Connexion fermée.");
         }
-
-        //création du canal de connexion
-        Connection maConnexion = null;
-
-        try {
-            maConnexion = DriverManager.getConnection(urlBD,"root","rootbd");
-            System.out.println("La connexion est réussie.");
-        } catch (SQLException e) { //de même, on gère l'exception
+        catch (SQLException e)
+        {
             throw new RuntimeException(e);
         }
+    }
 
+    public void CreationTable() throws SQLException
+    {
         //création des tables
         List<String> listeRequetes = new ArrayList<String>();
 
@@ -151,18 +168,13 @@ public class ConnexionBase {
                 ");");
 
         Statement monStatement = null;
-        monStatement = maConnexion.createStatement( );
+        monStatement = this.maConnexion.createStatement();
 
         for (String requete : listeRequetes) {
             int res = monStatement.executeUpdate(requete);
             System.out.println(res);
         }
-
         //fermeture du statement
         monStatement.close();
-
-        //fermeture de la connexion
-        maConnexion.close();
-        System.out.println("Connexion fermée.");
     }
 }

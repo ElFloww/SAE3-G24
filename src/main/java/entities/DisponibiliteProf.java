@@ -1,10 +1,10 @@
-package dao;
+package entities;
 
-public class DisponibiliteProfDAO {
+public class DisponibiliteProf {
     private int id_utilisateur;
     private int id_disponibilite;
 
-    public DisponibiliteProfDAO(int id_utilisateur, int id_disponibilite) {
+    public DisponibiliteProf(int id_utilisateur, int id_disponibilite) {
         this.id_utilisateur = id_utilisateur;
         this.id_disponibilite = id_disponibilite;
     }

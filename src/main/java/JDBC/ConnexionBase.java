@@ -117,7 +117,7 @@ public class ConnexionBase {
                 "   id_regroupement INT,\n" +
                 "   id_ressource INT,\n" +
                 "   id_type_enseignement INT,\n" +
-                "   nombre_heure_restante INT,\n" +
+                "   nombre_heure_restante TIME,\n" +
                 "   PRIMARY KEY(id_regroupement, id_ressource, id_type_enseignement),\n" +
                 "   FOREIGN KEY(id_regroupement) REFERENCES Regroupement(id_regroupement),\n" +
                 "   FOREIGN KEY(id_ressource) REFERENCES Ressource(id_ressource),\n" +

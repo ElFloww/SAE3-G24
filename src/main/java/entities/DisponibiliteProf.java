@@ -9,6 +9,8 @@ public class DisponibiliteProf {
         this.id_disponibilite = id_disponibilite;
     }
 
+    public DisponibiliteProf(){}
+
     public int getId_utilisateur() {
         return id_utilisateur;
     }
@@ -24,4 +26,17 @@ public class DisponibiliteProf {
     public void setId_disponibilite(int id_disponibilite) {
         this.id_disponibilite = id_disponibilite;
     }
+
+    @Override
+    public String toString() {
+        return "DisponibiliteProf{" +
+                "id_utilisateur=" + id_utilisateur +
+                ", id_disponibilite=" + id_disponibilite +
+                '}';
+    }
+    public boolean equals(DisponibiliteProf obj) {
+        return this.getId_utilisateur() == obj.getId_utilisateur() && this.getId_disponibilite() == obj.getId_disponibilite();
+    }
+
+
 }

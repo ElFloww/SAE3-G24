@@ -4,32 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8511bde5-bb9d-487d-8ec8-a9084814aba3" name="Changes" comment="Ajout de la connexion à la base&#10;Ajout des objets DAO">
-      <change afterPath="$PROJECT_DIR$/src/main/java/entities/Cours.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/entities/Salle.java" afterDir="false" />
+    <list default="true" id="8511bde5-bb9d-487d-8ec8-a9084814aba3" name="Changes" comment="- Modification du fichier de connexion à la base pour récupérer l'instance permettant d'effectuer des requêtes&#10;- Ajout d'une classe générique DAO&#10;- Ajout de classes DAO :&#10;     - Utilisateur&#10;     - Type_Enseignement&#10;     - Salle">
       <change beforePath="$PROJECT_DIR$/.idea/desktop.ini" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/desktop.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/desktop.ini" beforeDir="false" afterPath="$PROJECT_DIR$/desktop.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/desktop.ini" beforeDir="false" afterPath="$PROJECT_DIR$/src/desktop.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/desktop.ini" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/desktop.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/JDBC/ConnexionBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/JDBC/ConnexionBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/CommonDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/CoursDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DisponibiliteDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Disponibilite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DisponibiliteProfDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/DisponibiliteProf.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DisponibiliteSalleDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/DisponibiliteSalle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/FactoryDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/HeureDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Heure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/HeureRestanteDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/HeureRestante.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/HeureTotalPlacerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/HeureTotalPlacer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/JourDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Jour.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/RegroupementDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Regroupement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/RessourceDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Ressource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/SalleDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/Type_EnseignementDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Type_Enseignement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/UtilisateurDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Utilisateur.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/desktop.ini" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/desktop.ini" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/desktop.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Cours.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Cours.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Disponibilite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Disponibilite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/DisponibiliteProf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/DisponibiliteProf.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/DisponibiliteSalle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/DisponibiliteSalle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Heure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Heure.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/HeureRestante.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/HeureRestante.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/HeureTotalPlacer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/HeureTotalPlacer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Jour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Jour.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Regroupement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Regroupement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Ressource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Ressource.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/desktop.ini" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/desktop.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/desktop.ini" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/desktop.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/desktop.ini" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/desktop.ini" afterDir="false" />
@@ -48,6 +41,7 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -108,7 +102,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670838487966</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="- Modification du fichier de connexion à la base pour récupérer l'instance permettant d'effectuer des requêtes&#10;- Ajout d'une classe générique DAO&#10;- Ajout de classes DAO :&#10;     - Utilisateur&#10;     - Type_Enseignement&#10;     - Salle">
+      <created>1672151268228</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1672151268229</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -125,7 +126,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initialisation du projet" />
     <MESSAGE value="Ajout de la connexion à la base&#10;Ajout des objets DAO" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ajout de la connexion à la base&#10;Ajout des objets DAO" />
+    <MESSAGE value="- Modification du fichier de connexion à la base pour récupérer l'instance permettant d'effectuer des requêtes&#10;- Ajout d'une classe générique DAO&#10;- Ajout de classes DAO :&#10;     - Utilisateur&#10;     - Type_Enseignement&#10;     - Salle" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Modification du fichier de connexion à la base pour récupérer l'instance permettant d'effectuer des requêtes&#10;- Ajout d'une classe générique DAO&#10;- Ajout de classes DAO :&#10;     - Utilisateur&#10;     - Type_Enseignement&#10;     - Salle" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -2,66 +2,49 @@ package entities;
 
 public class Ressource {
     private int id_ressource;
+    private String code_ressource;
     private String nom_ressource;
-    private int THTD;
-    private int THTP;
-    private int THCM;
-    private int id_regroupement;
 
-    public Ressource(int id_ressource, String nom_ressource, int THTD, int THTP, int THCM, int id_regroupement) {
+    public Ressource(int id_ressource, String code_ressource, String nom_ressource) {
         this.id_ressource = id_ressource;
+        this.code_ressource = code_ressource;
         this.nom_ressource = nom_ressource;
-        this.THTD = THTD;
-        this.THTP = THTP;
-        this.THCM = THCM;
-        this.id_regroupement = id_regroupement;
     }
 
+    public Ressource(){}
     public int getId_ressource() {
         return id_ressource;
-    }
-
-    public String getNom_ressource() {
-        return nom_ressource;
-    }
-
-    public int getTHTD() {
-        return THTD;
-    }
-
-    public int getTHTP() {
-        return THTP;
-    }
-
-    public int getTHCM() {
-        return THCM;
-    }
-
-    public int getId_regroupement() {
-        return id_regroupement;
     }
 
     public void setId_ressource(int id_ressource) {
         this.id_ressource = id_ressource;
     }
 
+    public String getCode_ressource() {
+        return code_ressource;
+    }
+
+    public void setCode_ressource(String code_ressource) {
+        this.code_ressource = code_ressource;
+    }
+
+    public String getNom_ressource() {
+        return nom_ressource;
+    }
+
     public void setNom_ressource(String nom_ressource) {
         this.nom_ressource = nom_ressource;
     }
 
-    public void setTHTD(int THTD) {
-        this.THTD = THTD;
+    @Override
+    public String toString() {
+        return "Ressource{" +
+                "id_ressource=" + id_ressource +
+                ", code_ressource='" + code_ressource + '\'' +
+                ", nom_ressource='" + nom_ressource + '\'' +
+                '}';
     }
-
-    public void setTHTP(int THTP) {
-        this.THTP = THTP;
-    }
-
-    public void setTHCM(int THCM) {
-        this.THCM = THCM;
-    }
-
-    public void setId_regroupement(int id_regroupement) {
-        this.id_regroupement = id_regroupement;
+    public boolean equals(Ressource obj) {
+        return this.getId_ressource() == obj.getId_ressource() && this.getCode_ressource() == obj.getCode_ressource() && this.getNom_ressource() == obj.getNom_ressource();
     }
 }

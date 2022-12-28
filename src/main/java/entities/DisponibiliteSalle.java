@@ -8,6 +8,7 @@ public class DisponibiliteSalle {
         this.id_salle = id_salle;
         this.id_disponibilite = id_disponibilite;
     }
+    public DisponibiliteSalle(){}
 
     public int getId_salle() {
         return id_salle;
@@ -23,5 +24,17 @@ public class DisponibiliteSalle {
 
     public void setId_disponibilite(int id_disponibilite) {
         this.id_disponibilite = id_disponibilite;
+    }
+
+    @Override
+    public String toString() {
+        return "DisponibiliteSalle{" +
+                "id_salle=" + id_salle +
+                ", id_disponibilite=" + id_disponibilite +
+                '}';
+    }
+
+    public boolean equals(DisponibiliteSalle obj) {
+        return this.getId_disponibilite() == obj.getId_disponibilite() && this.getId_salle() == obj.getId_salle();
     }
 }

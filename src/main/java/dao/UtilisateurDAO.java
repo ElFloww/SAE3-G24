@@ -1,11 +1,11 @@
 package dao;
 
+import JDBC.ConnexionBase;
 import entities.Utilisateur;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UtilisateurDAO extends DAO<Utilisateur> {
 
@@ -26,15 +26,17 @@ public class UtilisateurDAO extends DAO<Utilisateur> {
             {
                 //On insère l'objet
                 Statement monStatement = this.Connexion.createStatement();
-                String query = "INSERT INTO Utilisateur VALUES (" + obj.getId_utilisateur() + ",'" + obj.getNom() + "','" + obj.getPrenom() + "','" + obj.getStatut() + "','" + obj.getMdp_crypte() + "'," + obj.getId_regroupement() +")";
+                String query = "INSERT INTO Utilisateur VALUES (" + obj.getId_utilisateur() + ",'" + obj.getNom() + "','" + obj.getPrenom() + "','" + obj.getStatut() + "','" + obj.getMdp_crypte() + "'," + obj.getId_regroupement() +");";
+
+                System.out.println(query);
                 monStatement.executeUpdate(query);
 
-                //On retourne vrai pour annoncé que l'action est réussie
+                //On retourne vrai pour annoncer que l'action est réussie
                 return true;
             }
             else
             {
-                //On retourne faux pour annoncé que l'action n'est pas réussie
+                //On retourne faux pour annoncer que l'action n'est pas réussie
                 return false;
             }
 
@@ -119,6 +121,35 @@ public class UtilisateurDAO extends DAO<Utilisateur> {
             throw new RuntimeException(e);
         }
         return user;
+    }
+
+    @Override
+    public List<Utilisateur> findAll()
+    {
+        List<Utilisateur> mesUtilisateurs = new ArrayList<>();
+
+        try{
+            ResultSet result = this.Connexion.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY).executeQuery("SELECT * FROM Utilisateur");
+
+            ResultSetMetaData rsmd = result.getMetaData();
+            int columnsNumber = rsmd.getColumnCount();
+            while (result.next()) {
+                Utilisateur monUtilisateur = new Utilisateur();
+                monUtilisateur.setId_utilisateur(result.getInt(1));
+                monUtilisateur.setNom(result.getString(2));
+                monUtilisateur.setPrenom(result.getString(3));
+                monUtilisateur.setStatut(result.getString(4));
+                monUtilisateur.setMdp_crypte(result.getString(5));
+                monUtilisateur.setId_regroupement(result.getInt(6));
+
+                mesUtilisateurs.add(monUtilisateur);
+                System.out.println("");
+            }
+        }catch (SQLException e)
+        {
+            throw new RuntimeException(e);
+        }
+        return mesUtilisateurs;
     }
 
 }

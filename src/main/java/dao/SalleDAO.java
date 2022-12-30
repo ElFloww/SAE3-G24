@@ -1,11 +1,11 @@
 package dao;
 
 import entities.Salle;
+import entities.Utilisateur;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SalleDAO extends DAO<Salle> {
 
@@ -120,4 +120,30 @@ public class SalleDAO extends DAO<Salle> {
         return maSalle;
     }
 
+    @Override
+    public List<Salle> findAll() {
+        {
+            List<Salle> mesSalles = new ArrayList<>();
+
+            try {
+                ResultSet result = this.Connexion.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY).executeQuery("SELECT * FROM Salle");
+
+                ResultSetMetaData rsmd = result.getMetaData();
+                int columnsNumber = rsmd.getColumnCount();
+                while (result.next()) {
+                    Salle maSalle = new Salle();
+                    maSalle.setId_salle(result.getInt(1));
+                    maSalle.setNom_salle(result.getString(2));
+                    maSalle.setType_salle(result.getString(3));
+                    maSalle.setCapacite_salle(result.getInt(4));
+
+                    mesSalles.add(maSalle);
+                    System.out.println("");
+                }
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+            return mesSalles;
+        }
+    }
 }

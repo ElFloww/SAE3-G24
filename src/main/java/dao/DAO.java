@@ -1,6 +1,8 @@
 package dao;
 
 import java.sql.Connection;
+import java.util.List;
+
 import JDBC.ConnexionBase;
 
 public abstract class DAO<Object> {
@@ -16,4 +18,5 @@ public abstract class DAO<Object> {
     public abstract boolean delete(Object obj);
     public abstract boolean update(Object obj);
     public abstract Object find(int ... parametre);
+    public abstract List<Object> findAll();
 }

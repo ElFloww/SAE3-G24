@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 
 public class DisponibiliteSalleDAO extends DAO<DisponibiliteSalle> {
 
@@ -95,6 +96,11 @@ public class DisponibiliteSalleDAO extends DAO<DisponibiliteSalle> {
             throw new RuntimeException(e);
         }
         return maDisponibiliteSalle;
+    }
+
+    @Override
+    public List<DisponibiliteSalle> findAll() {
+        return null;
     }
 
 }

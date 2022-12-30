@@ -1,11 +1,11 @@
 package dao;
 
 import entities.Regroupement;
+import entities.Utilisateur;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class RegroupementDAO extends DAO<Regroupement> {
 
@@ -120,4 +120,29 @@ public class RegroupementDAO extends DAO<Regroupement> {
         return monRegroupement;
     }
 
+    @Override
+    public List<Regroupement> findAll()
+    {
+        List<Regroupement> mesRegroupements = new ArrayList<>();
+
+        try{
+            ResultSet result = this.Connexion.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY).executeQuery("SELECT * FROM regroupement");
+
+            ResultSetMetaData rsmd = result.getMetaData();
+            int columnsNumber = rsmd.getColumnCount();
+            while (result.next()) {
+                Regroupement monRegroupement = new Regroupement();
+                monRegroupement.setId_regroupement(result.getInt(1));
+                monRegroupement.setDescription_regroupement(result.getString(2));
+                monRegroupement.setId_regroupement_parent(result.getInt(3));
+
+                mesRegroupements.add(monRegroupement);
+                System.out.println("");
+            }
+        }catch (SQLException e)
+        {
+            throw new RuntimeException(e);
+        }
+        return mesRegroupements;
+    }
 }

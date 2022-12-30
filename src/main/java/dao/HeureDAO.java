@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 
 public class HeureDAO extends DAO<Heure> {
 
@@ -118,6 +119,11 @@ public class HeureDAO extends DAO<Heure> {
             throw new RuntimeException(e);
         }
         return monHeure;
+    }
+
+    @Override
+    public List<Heure> findAll() {
+        return null;
     }
 
 }

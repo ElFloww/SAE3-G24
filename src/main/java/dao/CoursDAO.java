@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 
 public class CoursDAO extends DAO<Cours> {
 
@@ -96,6 +97,11 @@ public class CoursDAO extends DAO<Cours> {
             throw new RuntimeException(e);
         }
         return monCours;
+    }
+
+    @Override
+    public List<Cours> findAll() {
+        return null;
     }
 
 }

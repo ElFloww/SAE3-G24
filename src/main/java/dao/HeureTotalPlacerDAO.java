@@ -3,6 +3,7 @@ package dao;
 import entities.HeureTotalPlacer;
 
 import java.sql.*;
+import java.util.List;
 
 public class HeureTotalPlacerDAO extends DAO<HeureTotalPlacer> {
 
@@ -115,5 +116,10 @@ public class HeureTotalPlacerDAO extends DAO<HeureTotalPlacer> {
             throw new RuntimeException(e);
         }
         return monHeure;
+    }
+
+    @Override
+    public List<HeureTotalPlacer> findAll() {
+        return null;
     }
 }

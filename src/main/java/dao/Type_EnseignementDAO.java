@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 
 public class Type_EnseignementDAO extends DAO<Type_Enseignement>{
     public Type_EnseignementDAO(Connection maConnexion)
@@ -117,6 +118,11 @@ public class Type_EnseignementDAO extends DAO<Type_Enseignement>{
             throw new RuntimeException(e);
         }
         return enseignement;
+    }
+
+    @Override
+    public List<Type_Enseignement> findAll() {
+        return null;
     }
 
 }

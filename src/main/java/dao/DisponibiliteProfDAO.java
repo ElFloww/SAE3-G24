@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 
 public class DisponibiliteProfDAO extends DAO<DisponibiliteProf> {
 
@@ -95,6 +96,11 @@ public class DisponibiliteProfDAO extends DAO<DisponibiliteProf> {
             throw new RuntimeException(e);
         }
         return maDisponibiliteProf;
+    }
+
+    @Override
+    public List<DisponibiliteProf> findAll() {
+        return null;
     }
 
 }

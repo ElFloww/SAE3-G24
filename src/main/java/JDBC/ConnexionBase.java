@@ -10,9 +10,9 @@ import java.util.List;
 public class ConnexionBase {
 
     private static String nomDriver = "com.mysql.cj.jdbc.Driver";
-    private static String urlBD = "jdbc:mysql://localhost:3306/baseedt";
-    private static String user = "root";
-    private static String password = "";
+    private static String urlBD = "jdbc:mysql://79.87.121.17:3306/baseedt";
+    private static String user = "bdsae";
+    private static String password = "bdsae";
     public static Connection maConnexion;
 
     public static Connection getInstance() {

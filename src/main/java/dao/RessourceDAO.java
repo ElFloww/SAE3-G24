@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 
 public class RessourceDAO extends DAO<Ressource> {
 
@@ -119,6 +120,11 @@ public class RessourceDAO extends DAO<Ressource> {
             throw new RuntimeException(e);
         }
         return maRessource;
+    }
+
+    @Override
+    public List<Ressource> findAll() {
+        return null;
     }
 
 }

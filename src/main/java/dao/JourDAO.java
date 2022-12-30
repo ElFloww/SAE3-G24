@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 
 public class JourDAO extends DAO<Jour> {
 
@@ -119,6 +120,11 @@ public class JourDAO extends DAO<Jour> {
             throw new RuntimeException(e);
         }
         return monJour;
+    }
+
+    @Override
+    public List<Jour> findAll() {
+        return null;
     }
 
 }

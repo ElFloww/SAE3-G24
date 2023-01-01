@@ -1,4 +1,6 @@
 import JDBC.ConnexionBase;
+
+import java.sql.Connection;
 import java.util.Scanner;
 
 public class ProgrammePrincipal {
@@ -55,7 +57,10 @@ public class ProgrammePrincipal {
                 }
             }
         }
-        ConnexionBase.DeconnexionBase();
+        if(ConnexionBase.maConnexion != null)
+        {
+            ConnexionBase.DeconnexionBase();
+        }
     }
 }
 

@@ -16,25 +16,25 @@ public class ConnexionBase {
     public static Connection maConnexion;
 
     public static Connection getInstance() {
+        //Si la connexion n'est pas initialisée
         if (maConnexion == null) {
             try {
                 //Chargement du driver en mémoire
                 Class.forName(nomDriver);
-                System.out.println("Le driver est chargé.");
             } catch (ClassNotFoundException e) {
                 //on gère l'exception comme elle n'est pas issue de la classe RuntimeException
                 e.printStackTrace();
                 System.exit(-1);
             }
-
             try {
+                //On fait la connexion avec le serveur
                 maConnexion = DriverManager.getConnection(urlBD, user, password);
-                System.out.println("La connexion est réussie.");
+                System.out.println("La connexion au serveur est réussie");
             } catch (SQLException e) { //de même, on gère l'exception
                 throw new RuntimeException(e);
             }
-            return maConnexion;
         }
+        //On retourne la connexion
         return maConnexion;
     }
 

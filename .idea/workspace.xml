@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8511bde5-bb9d-487d-8ec8-a9084814aba3" name="Changes" comment="- Modification de la FACTORY DAO&#10;- Ajout de classes DAO :&#10;     - Ressource&#10;     - Regroupement&#10;     - Jour&#10;     - HeureTotalPlacer&#10;     - HeureRestante&#10;     - Heure&#10;     - DisponibiliteProf&#10;     - DisponibiliteSalle&#10;     - Disponibilite&#10;     - Cours">
+    <list default="true" id="8511bde5-bb9d-487d-8ec8-a9084814aba3" name="Changes" comment="- Modification des identifiants de base de données&#10;Ajout de méthodes pour :&#10;- Les disponibilités d'un professeur&#10;- Les disponibilités d'une salle&#10;- L'emploi du temps en fonction du groupe et du numéro de semaine&#10;&#10;Tout ceci restant à améliorer !">
       <change beforePath="$PROJECT_DIR$/.idea/desktop.ini" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/desktop.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/desktop.ini" beforeDir="false" afterPath="$PROJECT_DIR$/desktop.ini" afterDir="false" />
@@ -40,8 +40,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -60,16 +60,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;G:/Mon Drive/Cours IUT/R3.00/R3.04 - Qualité de développement/DesignPattern&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.general&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "last_opened_file_path": "C:/Users/Florent/Mon Drive/Cours IUT/SAE 3.0/R3.04 - Qualité de développement/SAE3-G24",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.general"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="ProgrammePrincipal" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ProgrammePrincipal" />
@@ -121,7 +129,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672232859649</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="- Modification des identifiants de base de données&#10;Ajout de méthodes pour :&#10;- Les disponibilités d'un professeur&#10;- Les disponibilités d'une salle&#10;- L'emploi du temps en fonction du groupe et du numéro de semaine&#10;&#10;Tout ceci restant à améliorer !">
+      <created>1672433866742</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1672433866742</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -140,7 +155,8 @@
     <MESSAGE value="Ajout de la connexion à la base&#10;Ajout des objets DAO" />
     <MESSAGE value="- Modification du fichier de connexion à la base pour récupérer l'instance permettant d'effectuer des requêtes&#10;- Ajout d'une classe générique DAO&#10;- Ajout de classes DAO :&#10;     - Utilisateur&#10;     - Type_Enseignement&#10;     - Salle" />
     <MESSAGE value="- Modification de la FACTORY DAO&#10;- Ajout de classes DAO :&#10;     - Ressource&#10;     - Regroupement&#10;     - Jour&#10;     - HeureTotalPlacer&#10;     - HeureRestante&#10;     - Heure&#10;     - DisponibiliteProf&#10;     - DisponibiliteSalle&#10;     - Disponibilite&#10;     - Cours" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Modification de la FACTORY DAO&#10;- Ajout de classes DAO :&#10;     - Ressource&#10;     - Regroupement&#10;     - Jour&#10;     - HeureTotalPlacer&#10;     - HeureRestante&#10;     - Heure&#10;     - DisponibiliteProf&#10;     - DisponibiliteSalle&#10;     - Disponibilite&#10;     - Cours" />
+    <MESSAGE value="- Modification des identifiants de base de données&#10;Ajout de méthodes pour :&#10;- Les disponibilités d'un professeur&#10;- Les disponibilités d'une salle&#10;- L'emploi du temps en fonction du groupe et du numéro de semaine&#10;&#10;Tout ceci restant à améliorer !" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Modification des identifiants de base de données&#10;Ajout de méthodes pour :&#10;- Les disponibilités d'un professeur&#10;- Les disponibilités d'une salle&#10;- L'emploi du temps en fonction du groupe et du numéro de semaine&#10;&#10;Tout ceci restant à améliorer !" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

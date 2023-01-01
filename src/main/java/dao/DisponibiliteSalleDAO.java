@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 public class DisponibiliteSalleDAO extends DAO<DisponibiliteSalle> {
@@ -14,12 +15,14 @@ public class DisponibiliteSalleDAO extends DAO<DisponibiliteSalle> {
     {
         super(maConnexion);
     }
+
+    //Méthode qui permet de créer l'objet obj de la table disponibilitesalle
     @Override
     public boolean create(DisponibiliteSalle obj)
     {
         try
         {
-            //On regarde si cet id_utilisateur existe dans la base de donnée
+            //On regarde si cet identifiant existe dans la base de donnée
             ResultSet result = this.Connexion.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY).executeQuery("SELECT id_salle FROM disponibilite_salle WHERE id_salle = " + obj.getId_salle() + " AND id_disponibilite = " + obj.getId_disponibilite());
 
             //Si il n'y a pas d'enregistrement dans la base de données
@@ -44,14 +47,16 @@ public class DisponibiliteSalleDAO extends DAO<DisponibiliteSalle> {
             throw new RuntimeException(e);
         }
     }
+
+    //Méthode qui permet de supprimer l'objet obj de la table disponibiliteSalle
     public boolean delete(DisponibiliteSalle obj)
     {
         try
         {
-            //On regarde" si cet id_utilisateur existe dans la base de donnée
+            //On regarde si cet identifiant existe dans la base de donnée
             ResultSet result = this.Connexion.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY).executeQuery("SELECT id_salle FROM disponibilite_salle WHERE id_salle = " + obj.getId_salle() + " AND id_disponibilite = " + obj.getId_disponibilite());
 
-            //Si il n'y a pas d'enregistrement dans la base de données
+            //S'il y a un enregistrement dans la base de données
             if(result.first())
             {
                 //On supprime dans la base de données
@@ -73,11 +78,15 @@ public class DisponibiliteSalleDAO extends DAO<DisponibiliteSalle> {
             throw new RuntimeException(e);
         }
     }
+
+    //Méthode qui permet de mettre à jour l'objet obj de la table disponibiliteSalle
     public boolean update(DisponibiliteSalle obj)
     {
         //L'update est inexistant pour cette table, car tous les champs constitue la cle primaire
         return true;
     }
+
+    //Méthode qui permet de trouver une disponibilité de salle dans la base de données grâce à son identifiant
     public DisponibiliteSalle find(int... parametre)
     {
         DisponibiliteSalle maDisponibiliteSalle = new DisponibiliteSalle();
@@ -88,6 +97,7 @@ public class DisponibiliteSalleDAO extends DAO<DisponibiliteSalle> {
 
             if(result.first())
             {
+                //On met les informations récupérées dans l'objet
                 maDisponibiliteSalle = new DisponibiliteSalle(parametre[0],parametre[1]);
             }
 
@@ -98,9 +108,31 @@ public class DisponibiliteSalleDAO extends DAO<DisponibiliteSalle> {
         return maDisponibiliteSalle;
     }
 
+    //Méthode qui permet de trouver toutes les disponibilités des salles dans la base de données
     @Override
-    public List<DisponibiliteSalle> findAll() {
-        return null;
+    public List<DisponibiliteSalle> findAll()
+    {
+        //Création d'une liste de disponibilitésSalle pour le stockage des données
+        List<DisponibiliteSalle> mesDisponibiliteSalle = new ArrayList<>();
+
+        try
+        {
+            //Execution de la requête permettant la récupération de toutes les disponibilités des salles
+            ResultSet result = this.Connexion.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY).executeQuery("SELECT * FROM disponibilite_salle");
+            //pour chaque enregistrement du résultat de la requête
+            while (result.next()) {
+                //On crée un objet DisponibiliteSalle avec chaque element le composant
+                DisponibiliteSalle maDisponibiliteSalle = new DisponibiliteSalle(result.getInt(1),result.getInt(2));
+                //On ajoute cette disponibilitéSalle dans la liste des disponibilitésSalle
+                mesDisponibiliteSalle.add(maDisponibiliteSalle);
+            }
+        }
+        catch (SQLException e)
+        {
+            throw new RuntimeException(e);
+        }
+        //On retourne toutes les disponibilités
+        return mesDisponibiliteSalle;
     }
 
 }

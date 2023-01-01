@@ -2,18 +2,19 @@ package dao;
 
 import entities.Cours;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class CoursDAO extends DAO<Cours> {
 
+    //Constructeur qui appelle le constructeur de DAO
     public CoursDAO(Connection maConnexion)
     {
         super(maConnexion);
     }
+
+    //Méthode qui permet de créer l'objet obj de la table cours
     @Override
     public boolean create(Cours obj)
     {
@@ -45,6 +46,8 @@ public class CoursDAO extends DAO<Cours> {
             throw new RuntimeException(e);
         }
     }
+
+    //Méthode qui permet de supprimer l'objet obj de la table cours
     public boolean delete(Cours obj)
     {
         try
@@ -74,11 +77,13 @@ public class CoursDAO extends DAO<Cours> {
             throw new RuntimeException(e);
         }
     }
+    //Méthode qui permet de mettre à jour l'objet obj de la table cours
     public boolean update(Cours obj)
     {
         //L'update est inexistant pour cette table, car tous les champs constitue la cle primaire
         return true;
     }
+    //Méthode qui permet de trouver un cours dans la base de données grâce à son identifiant
     public Cours find(int... parametre)
     {
         Cours monCours = new Cours();
@@ -99,9 +104,33 @@ public class CoursDAO extends DAO<Cours> {
         return monCours;
     }
 
+    //Méthode qui permet de trouver tous les cours dans la base de données
     @Override
-    public List<Cours> findAll() {
-        return null;
-    }
+    public List<Cours> findAll()
+    {
+        List<Cours> mesCours = new ArrayList<>();
 
+        try
+        {
+            ResultSet result = this.Connexion.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY).executeQuery("SELECT * FROM cours");
+            while (result.next()) {
+                Cours monCours = new Cours();
+                monCours.setId_utilisateur(result.getInt(1));
+                monCours.setId_regroupement(result.getInt(2));
+                monCours.setId_salle(result.getInt(3));
+                monCours.setId_ressource(result.getInt(4));
+                monCours.setId_heure_debut(result.getInt(5));
+                monCours.setId_heure_duree(result.getInt(6));
+                monCours.setId_semaine(result.getByte(7));
+                monCours.setId_jours(result.getByte(8));
+                monCours.setId_type_enseignement(result.getInt(9));
+                mesCours.add(monCours);
+            }
+        }
+        catch (SQLException e)
+        {
+            throw new RuntimeException(e);
+        }
+        return mesCours;
+    }
 }
